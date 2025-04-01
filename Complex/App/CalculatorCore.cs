@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 
 namespace ComplexCalcSeparated
 {
@@ -24,7 +24,26 @@ namespace ComplexCalcSeparated
         public bool MemoryHasValue => memory.HasValue;
 
         // Текст, который мы показываем на дисплее
-        public string DisplayText { get; set; } = "0";
+private string displayFormat = "Комплексное"; // Default display format
+
+public string DisplayText
+{
+    get
+    {
+        if (displayFormat == "Действительное" && currentValue.Imag == 0)
+        {
+            return currentValue.Real.ToString();
+        }
+        return currentValue.ToString();
+    }
+    set
+    {
+        SetDisplayTextDirect(value);
+    }
+
+}
+
+
 
         // Конструктор
         public CalculatorCore() { }
@@ -106,7 +125,13 @@ namespace ComplexCalcSeparated
         #endregion
 
         #region Равно
-        public void PressEquals()
+public void SetDisplayFormat(string format) 
+{
+    displayFormat = format;
+}
+
+public void PressEquals()
+
         {
             if (pendingOperator == null)
             {

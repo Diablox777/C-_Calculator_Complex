@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -11,6 +11,7 @@ namespace ComplexCalcSeparated
         private TextBox txtDisplay;
         private Label lblMemory;
         private MenuStrip menuStrip;
+        private ComboBox cmbDisplayFormat; // Dropdown for display format
 
         public CalcForm()
         {
@@ -67,9 +68,21 @@ namespace ComplexCalcSeparated
             lblMemory.Visible = false;
             this.Controls.Add(lblMemory);
 
+            cmbDisplayFormat = new ComboBox();
+            cmbDisplayFormat.Location = new Point(10, 90);
+            cmbDisplayFormat.Items.Add("Комплексное");
+            cmbDisplayFormat.Items.Add("Действительное");
+            cmbDisplayFormat.SelectedIndex = 0; // Default to "Комплексное"
+cmbDisplayFormat.SelectedIndexChanged += (s, e) => {
+    calcCore.SetDisplayFormat(cmbDisplayFormat.SelectedItem.ToString());
+    UpdateDisplay(); // Update display when format changes
+};
+
+            this.Controls.Add(cmbDisplayFormat);
+
             // Теперь создаём кнопки:
             // Память (MC, MR, MS, M+)
-            int x0 = 10, y0 = 90;
+            int x0 = 10, y0 = 130;
             Button btnMC = MakeButton("MC", x0, y0, (s, e) => {
                 calcCore.MemoryClear();
                 UpdateDisplay();
@@ -88,7 +101,7 @@ namespace ComplexCalcSeparated
             });
 
             // Строка 1: 7,8,9, +, -
-            int x1 = 10, y1 = 140;
+            int x1 = 10, y1 = 180;
             Button btn7 = MakeButton("7", x1, y1, (s, e) => { calcCore.PressDigit("7"); UpdateDisplay(); });
             Button btn8 = MakeButton("8", x1 + 60, y1, (s, e) => { calcCore.PressDigit("8"); UpdateDisplay(); });
             Button btn9 = MakeButton("9", x1 + 120, y1, (s, e) => { calcCore.PressDigit("9"); UpdateDisplay(); });
@@ -96,7 +109,7 @@ namespace ComplexCalcSeparated
             Button btnSub = MakeButton("-", x1 + 240, y1, (s, e) => { calcCore.PressOperator("-"); UpdateDisplay(); });
 
             // Строка 2: 4,5,6, *, /
-            int y2 = 190;
+            int y2 = 230;
             Button btn4 = MakeButton("4", x1, y2, (s, e) => { calcCore.PressDigit("4"); UpdateDisplay(); });
             Button btn5 = MakeButton("5", x1 + 60, y2, (s, e) => { calcCore.PressDigit("5"); UpdateDisplay(); });
             Button btn6 = MakeButton("6", x1 + 120, y2, (s, e) => { calcCore.PressDigit("6"); UpdateDisplay(); });
@@ -104,7 +117,7 @@ namespace ComplexCalcSeparated
             Button btnDiv = MakeButton("/", x1 + 240, y2, (s, e) => { calcCore.PressOperator("/"); UpdateDisplay(); });
 
             // Строка 3: 1,2,3, ., i
-            int y3 = 240;
+            int y3 = 280;
             Button btn1 = MakeButton("1", x1, y3, (s, e) => { calcCore.PressDigit("1"); UpdateDisplay(); });
             Button btn2 = MakeButton("2", x1 + 60, y3, (s, e) => { calcCore.PressDigit("2"); UpdateDisplay(); });
             Button btn3 = MakeButton("3", x1 + 120, y3, (s, e) => { calcCore.PressDigit("3"); UpdateDisplay(); });
@@ -112,7 +125,7 @@ namespace ComplexCalcSeparated
             Button btnI = MakeButton("i", x1 + 240, y3, (s, e) => { calcCore.PressI(); UpdateDisplay(); });
 
             // Строка 4: 0, Backspace, =, C
-            int y4 = 290;
+            int y4 = 330;
             Button btn0 = MakeButton("0", x1, y4, (s, e) => { calcCore.PressDigit("0"); UpdateDisplay(); });
             Button btnBksp = MakeButton("←", x1 + 60, y4, (s, e) => { calcCore.PressBackspace(); UpdateDisplay(); });
             Button btnEq = MakeButton("=", x1 + 120, y4, (s, e) => {
@@ -125,7 +138,7 @@ namespace ComplexCalcSeparated
             });
 
             // Строка 5: функции (Sqr, Rev, Mdl, Cnr, Pwr, Root)
-            int y5 = 340;
+            int y5 = 380;
             Button btnSqr = MakeButton("Sqr", x1, y5, (s, e) => {
                 calcCore.PressSqr();
                 UpdateDisplay();
@@ -154,7 +167,7 @@ namespace ComplexCalcSeparated
             });
 
             // Строка 6: Root (расположим рядом)
-            int y6 = 390;
+            int y6 = 430;
             Button btnRoot = MakeButton("Root", x1, y6, (s, e) => {
                 string input = Prompt("Степень корня (целое >0)", "Root", "2");
                 if (int.TryParse(input, out int n) && n > 0)
@@ -304,6 +317,11 @@ namespace ComplexCalcSeparated
             prompt.CancelButton = btnCancel;
 
             return prompt.ShowDialog() == DialogResult.OK ? txtInput.Text : null;
+        }
+
+        private void CmbDisplayFormat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDisplay(); // Update display when format changes
         }
     }
 }
