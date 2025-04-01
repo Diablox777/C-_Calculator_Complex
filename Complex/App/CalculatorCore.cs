@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
+﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿﻿using System;
 
 namespace ComplexCalcSeparated
 {
@@ -139,7 +139,9 @@ public void PressEquals()
                 if (lastOpEquals && !string.IsNullOrEmpty(lastOperator))
                 {
                     // повторяем
-                    ApplyLastOperator();
+                ApplyLastOperator();
+                pendingOperator = null; // Prevents infinite recursion
+
                 }
                 return;
             }
@@ -343,7 +345,11 @@ public void PressEquals()
         public void SetDisplayTextDirect(string raw)
         {
             // Если нужно просто записать строку:
-            DisplayText = raw;
+            // Directly set the underlying field to avoid recursion
+            currentValue = Parse(raw);
+            isNewEntry = false;
+            lastOpEquals = false;
+
             isNewEntry = false;
             lastOpEquals = false;
         }
