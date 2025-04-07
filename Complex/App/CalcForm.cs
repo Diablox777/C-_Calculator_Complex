@@ -7,17 +7,18 @@ namespace ComplexCalcSeparated
     public partial class CalcForm : Form
     {
         private CalculatorCore calcCore;
-
         private TextBox txtDisplay;
         private Label lblMemory;
-        private MenuStrip menuStrip;
-        private ToolStripMenuItem menuSettings;
+        private Button hamburgerButton;
+        private Panel sidePanel;
+        private ContextMenuStrip editMenu;
+        private ContextMenuStrip settingsMenu;
+        private ContextMenuStrip helpMenu;
 
         public CalcForm()
         {
             InitializeComponent();
             calcCore = new CalculatorCore();
-
             txtDisplay.Text = calcCore.DisplayText;
             lblMemory.Visible = calcCore.MemoryHasValue;
         }
@@ -31,50 +32,27 @@ namespace ComplexCalcSeparated
             this.KeyPress += CalcForm_KeyPress;
             this.BackColor = Color.FromArgb(30, 30, 30);
 
-            menuStrip = new MenuStrip();
-            menuStrip.BackColor = Color.FromArgb(40, 40, 40);
+            // Гамбургер-кнопка
+            hamburgerButton = new Button();
+            hamburgerButton.Text = "≡";
+            hamburgerButton.Font = new Font("Segoe UI", 14f, FontStyle.Bold);
+            hamburgerButton.Size = new Size(40, 40);
+            hamburgerButton.Location = new Point(10, 10);
+            hamburgerButton.Click += HamburgerButton_Click;
+            this.Controls.Add(hamburgerButton);
 
-            var menuEdit = new ToolStripMenuItem("Правка");
-            var miCopy = new ToolStripMenuItem("Копировать", null, OnMenuCopy_Click) { ShortcutKeys = Keys.Control | Keys.C };
-            var miPaste = new ToolStripMenuItem("Вставить", null, OnMenuPaste_Click) { ShortcutKeys = Keys.Control | Keys.V };
-            menuEdit.DropDownItems.Add(miCopy);
-            menuEdit.DropDownItems.Add(miPaste);
-            menuStrip.Items.Add(menuEdit);
+            // Боковая панель
+            sidePanel = new Panel();
+            sidePanel.Size = new Size(60, 320);
+            sidePanel.Location = new Point(-60, 50);
+            sidePanel.BackColor = Color.FromArgb(40, 40, 40);
+            sidePanel.Visible = false;
+            CreateSidePanelButtons();
+            this.Controls.Add(sidePanel);
 
-            menuSettings = new ToolStripMenuItem("Настройка");
-            var miComplexFormat = new ToolStripMenuItem("Комплексный формат");
-            var miRealFormat = new ToolStripMenuItem("Действительный формат");
-
-            miComplexFormat.Click += (s, e) => {
-                calcCore.DisplayFormat = DisplayFormat.Complex;
-                UpdateDisplay();
-                miComplexFormat.Checked = true;
-                miRealFormat.Checked = false;
-            };
-            miComplexFormat.Checked = true;
-
-            miRealFormat.Click += (s, e) => {
-                calcCore.DisplayFormat = DisplayFormat.Real;
-                UpdateDisplay();
-                miComplexFormat.Checked = false;
-                miRealFormat.Checked = true;
-            };
-            miRealFormat.Checked = false;
-
-            menuSettings.DropDownItems.Add(miComplexFormat);
-            menuSettings.DropDownItems.Add(miRealFormat);
-            menuStrip.Items.Add(menuSettings);
-
-            var menuHelp = new ToolStripMenuItem("Справка");
-            var miAbout = new ToolStripMenuItem("О программе", null, OnMenuAbout_Click);
-            menuHelp.DropDownItems.Add(miAbout);
-            menuStrip.Items.Add(menuHelp);
-
-            this.MainMenuStrip = menuStrip;
-            this.Controls.Add(menuStrip);
-
+            // Основные элементы
             txtDisplay = new TextBox();
-            txtDisplay.Location = new Point(10, 40);
+            txtDisplay.Location = new Point(10, 60);
             txtDisplay.Width = 300;
             txtDisplay.ReadOnly = true;
             txtDisplay.TextAlign = HorizontalAlignment.Right;
@@ -87,13 +65,100 @@ namespace ComplexCalcSeparated
 
             lblMemory = new Label();
             lblMemory.Text = "M";
-            lblMemory.Location = new Point(325, 45);
+            lblMemory.Location = new Point(325, 65);
             lblMemory.Font = new Font("Times New Roman", 12f, FontStyle.Bold);
             lblMemory.ForeColor = Color.Red;
             lblMemory.Visible = false;
             this.Controls.Add(lblMemory);
 
             CreateButtons();
+            CreateContextMenus();
+        }
+
+        private void CreateSidePanelButtons()
+        {
+            Button btnEdit = new Button();
+            btnEdit.Text = "✏️";
+            btnEdit.Font = new Font("Segoe UI Symbol", 12f, FontStyle.Bold);
+            btnEdit.Size = new Size(40, 40);
+            btnEdit.Location = new Point(10, 10);
+            btnEdit.Click += (s, e) => editMenu.Show(btnEdit, new Point(40, 0));
+            sidePanel.Controls.Add(btnEdit);
+
+            Button btnSettings = new Button();
+            btnSettings.Text = "⚙️";
+            btnSettings.Font = new Font("Segoe UI Symbol", 12f, FontStyle.Bold);
+            btnSettings.Size = new Size(40, 40);
+            btnSettings.Location = new Point(10, 60);
+            btnSettings.Click += (s, e) => settingsMenu.Show(btnSettings, new Point(40, 0));
+            sidePanel.Controls.Add(btnSettings);
+
+            Button btnHelp = new Button();
+            btnHelp.Text = "❓";
+            btnHelp.Font = new Font("Segoe UI Symbol", 12f, FontStyle.Bold);
+            btnHelp.Size = new Size(40, 40);
+            btnHelp.Location = new Point(10, 110);
+            btnHelp.Click += (s, e) => helpMenu.Show(btnHelp, new Point(40, 0));
+            sidePanel.Controls.Add(btnHelp);
+        }
+
+        private void CreateContextMenus()
+        {
+            // Меню Правка
+            editMenu = new ContextMenuStrip();
+            var miCopy = new ToolStripMenuItem("Копировать", null, OnMenuCopy_Click) 
+            { 
+                ShortcutKeys = Keys.Control | Keys.C 
+            };
+            var miPaste = new ToolStripMenuItem("Вставить", null, OnMenuPaste_Click) 
+            { 
+                ShortcutKeys = Keys.Control | Keys.V 
+            };
+            editMenu.Items.Add(miCopy);
+            editMenu.Items.Add(miPaste);
+
+            // Меню Настройка
+            settingsMenu = new ContextMenuStrip();
+            var miComplexFormat = new ToolStripMenuItem("Комплексный формат");
+            var miRealFormat = new ToolStripMenuItem("Действительный формат");
+            
+            miComplexFormat.Click += (s, e) => 
+            {
+                calcCore.DisplayFormat = DisplayFormat.Complex;
+                UpdateDisplay();
+                miComplexFormat.Checked = true;
+                miRealFormat.Checked = false;
+            };
+            miComplexFormat.Checked = true;
+            
+            miRealFormat.Click += (s, e) => 
+            {
+                calcCore.DisplayFormat = DisplayFormat.Real;
+                UpdateDisplay();
+                miComplexFormat.Checked = false;
+                miRealFormat.Checked = true;
+            };
+            
+            settingsMenu.Items.Add(miComplexFormat);
+            settingsMenu.Items.Add(miRealFormat);
+
+            // Меню Справка
+            helpMenu = new ContextMenuStrip();
+            var miAbout = new ToolStripMenuItem("О программе", null, OnMenuAbout_Click);
+            helpMenu.Items.Add(miAbout);
+        }
+
+        private void HamburgerButton_Click(object sender, EventArgs e)
+        {
+            if (sidePanel.Visible)
+            {
+                sidePanel.Hide();
+            }
+            else
+            {
+                sidePanel.Show();
+                sidePanel.Location = new Point(10, 50);
+            }
         }
 
         private void CreateButtons()
@@ -138,7 +203,6 @@ namespace ComplexCalcSeparated
                     }
                 }
             });
-
             int x1 = 10, y1 = 140;
             Button btnMC = MakeButton("MC", x1, y1, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryClear();
@@ -149,7 +213,6 @@ namespace ComplexCalcSeparated
             Button btn9 = MakeButton("9", x1 + 180, y1, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("9"); UpdateDisplay(); });
             Button btnAdd = MakeButton("+", x1 + 240, y1, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("+"); UpdateDisplay(); });
             Button btnMul = MakeButton("*", x1 + 300, y1, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("*"); UpdateDisplay(); });
-
             int y2 = 190;
             Button btnMR = MakeButton("MR", x1, y2, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryRecall();
@@ -160,7 +223,6 @@ namespace ComplexCalcSeparated
             Button btn6 = MakeButton("6", x1 + 180, y2, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("6"); UpdateDisplay(); });
             Button btnSub = MakeButton("-", x1 + 240, y2, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("-"); UpdateDisplay(); });
             Button btnDiv = MakeButton("/", x1 + 300, y2, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("/"); UpdateDisplay(); });
-
             int y3 = 240;
             Button btnMS = MakeButton("MS", x1, y3, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryStore();
@@ -170,7 +232,6 @@ namespace ComplexCalcSeparated
             Button btn2 = MakeButton("2", x1 + 120, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("2"); UpdateDisplay(); });
             Button btn3 = MakeButton("3", x1 + 180, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("3"); UpdateDisplay(); });
             Button btnI = MakeButton("i*", x1 + 240, y3, Color.FromArgb(100, 149, 237), (s, e) => { calcCore.PressI(); UpdateDisplay(); });
-
             int y4 = 290;
             Button btnMPlus = MakeButton("M+", x1, y4, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryAdd();
@@ -190,7 +251,6 @@ namespace ComplexCalcSeparated
                 calcCore.PressClearEntry();
                 UpdateDisplay();
             });
-
             this.Controls.AddRange(new Control[] {
                 btnMC, btnMR, btnMS, btnMPlus,
                 btn7, btn8, btn9, btnAdd, btnSub,
@@ -348,17 +408,14 @@ namespace ComplexCalcSeparated
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
-
             btnOk.Click += (s, e) => { prompt.DialogResult = DialogResult.OK; prompt.Close(); };
             btnCancel.Click += (s, e) => { prompt.DialogResult = DialogResult.Cancel; prompt.Close(); };
-
             prompt.Controls.Add(lbl);
             prompt.Controls.Add(txtInput);
             prompt.Controls.Add(btnOk);
             prompt.Controls.Add(btnCancel);
             prompt.AcceptButton = btnOk;
             prompt.CancelButton = btnCancel;
-
             return prompt.ShowDialog() == DialogResult.OK ? txtInput.Text : null;
         }
     }
