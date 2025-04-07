@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -29,10 +29,10 @@ namespace ComplexCalcSeparated
             this.StartPosition = FormStartPosition.CenterScreen;
             this.KeyPreview = true;
             this.KeyPress += CalcForm_KeyPress;
-            this.BackColor = Color.FromArgb(240, 240, 240);
+            this.BackColor = Color.FromArgb(30, 30, 30);
 
             menuStrip = new MenuStrip();
-            menuStrip.BackColor = Color.FromArgb(70, 130, 180);
+            menuStrip.BackColor = Color.FromArgb(40, 40, 40);
 
             var menuEdit = new ToolStripMenuItem("Правка");
             var miCopy = new ToolStripMenuItem("Копировать", null, OnMenuCopy_Click) { ShortcutKeys = Keys.Control | Keys.C };
@@ -42,12 +42,10 @@ namespace ComplexCalcSeparated
             menuStrip.Items.Add(menuEdit);
 
             menuSettings = new ToolStripMenuItem("Настройка");
-
             var miComplexFormat = new ToolStripMenuItem("Комплексный формат");
             var miRealFormat = new ToolStripMenuItem("Действительный формат");
 
-            miComplexFormat.Click += (s, e) =>
-            {
+            miComplexFormat.Click += (s, e) => {
                 calcCore.DisplayFormat = DisplayFormat.Complex;
                 UpdateDisplay();
                 miComplexFormat.Checked = true;
@@ -55,8 +53,7 @@ namespace ComplexCalcSeparated
             };
             miComplexFormat.Checked = true;
 
-            miRealFormat.Click += (s, e) =>
-            {
+            miRealFormat.Click += (s, e) => {
                 calcCore.DisplayFormat = DisplayFormat.Real;
                 UpdateDisplay();
                 miComplexFormat.Checked = false;
@@ -81,9 +78,9 @@ namespace ComplexCalcSeparated
             txtDisplay.Width = 300;
             txtDisplay.ReadOnly = true;
             txtDisplay.TextAlign = HorizontalAlignment.Right;
-            txtDisplay.Font = new Font("Segoe UI", 14f, FontStyle.Bold);
-            txtDisplay.BackColor = Color.FromArgb(255, 255, 230);
-            txtDisplay.ForeColor = Color.FromArgb(70, 70, 70);
+            txtDisplay.Font = new Font("Times New Roman", 14f, FontStyle.Bold);
+            txtDisplay.BackColor = Color.FromArgb(50, 50, 50);
+            txtDisplay.ForeColor = Color.White;
             txtDisplay.BorderStyle = BorderStyle.Fixed3D;
             txtDisplay.Text = "0";
             this.Controls.Add(txtDisplay);
@@ -91,8 +88,8 @@ namespace ComplexCalcSeparated
             lblMemory = new Label();
             lblMemory.Text = "M";
             lblMemory.Location = new Point(325, 45);
-            lblMemory.Font = new Font("Segoe UI", 12f, FontStyle.Bold);
-            lblMemory.ForeColor = Color.FromArgb(70, 130, 180);
+            lblMemory.Font = new Font("Times New Roman", 12f, FontStyle.Bold);
+            lblMemory.ForeColor = Color.Red;
             lblMemory.Visible = false;
             this.Controls.Add(lblMemory);
 
@@ -147,31 +144,31 @@ namespace ComplexCalcSeparated
                 calcCore.MemoryClear();
                 UpdateDisplay();
             });
-            Button btn7 = MakeButton("7", x1 + 60, y1, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("7"); UpdateDisplay(); });
-            Button btn8 = MakeButton("8", x1 + 120, y1, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("8"); UpdateDisplay(); });
-            Button btn9 = MakeButton("9", x1 + 180, y1, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("9"); UpdateDisplay(); });
-            Button btnAdd = MakeButton("+", x1 + 240, y1, Color.FromArgb(255, 165, 0), (s, e) => { calcCore.PressOperator("+"); UpdateDisplay(); });
-            Button btnMul = MakeButton("*", x1 + 300, y1, Color.FromArgb(255, 165, 0), (s, e) => { calcCore.PressOperator("*"); UpdateDisplay(); });
+            Button btn7 = MakeButton("7", x1 + 60, y1, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("7"); UpdateDisplay(); });
+            Button btn8 = MakeButton("8", x1 + 120, y1, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("8"); UpdateDisplay(); });
+            Button btn9 = MakeButton("9", x1 + 180, y1, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("9"); UpdateDisplay(); });
+            Button btnAdd = MakeButton("+", x1 + 240, y1, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("+"); UpdateDisplay(); });
+            Button btnMul = MakeButton("*", x1 + 300, y1, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("*"); UpdateDisplay(); });
 
             int y2 = 190;
             Button btnMR = MakeButton("MR", x1, y2, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryRecall();
                 UpdateDisplay();
             });
-            Button btn4 = MakeButton("4", x1 + 60, y2, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("4"); UpdateDisplay(); });
-            Button btn5 = MakeButton("5", x1 + 120, y2, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("5"); UpdateDisplay(); });
-            Button btn6 = MakeButton("6", x1 + 180, y2, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("6"); UpdateDisplay(); });
-            Button btnSub = MakeButton("-", x1 + 240, y2, Color.FromArgb(255, 165, 0), (s, e) => { calcCore.PressOperator("-"); UpdateDisplay(); });
-            Button btnDiv = MakeButton("/", x1 + 300, y2, Color.FromArgb(255, 165, 0), (s, e) => { calcCore.PressOperator("/"); UpdateDisplay(); });
+            Button btn4 = MakeButton("4", x1 + 60, y2, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("4"); UpdateDisplay(); });
+            Button btn5 = MakeButton("5", x1 + 120, y2, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("5"); UpdateDisplay(); });
+            Button btn6 = MakeButton("6", x1 + 180, y2, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("6"); UpdateDisplay(); });
+            Button btnSub = MakeButton("-", x1 + 240, y2, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("-"); UpdateDisplay(); });
+            Button btnDiv = MakeButton("/", x1 + 300, y2, Color.FromArgb(60, 60, 60), (s, e) => { calcCore.PressOperator("/"); UpdateDisplay(); });
 
             int y3 = 240;
             Button btnMS = MakeButton("MS", x1, y3, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryStore();
                 UpdateDisplay();
             });
-            Button btn1 = MakeButton("1", x1 + 60, y3, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("1"); UpdateDisplay(); });
-            Button btn2 = MakeButton("2", x1 + 120, y3, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("2"); UpdateDisplay(); });
-            Button btn3 = MakeButton("3", x1 + 180, y3, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("3"); UpdateDisplay(); });
+            Button btn1 = MakeButton("1", x1 + 60, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("1"); UpdateDisplay(); });
+            Button btn2 = MakeButton("2", x1 + 120, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("2"); UpdateDisplay(); });
+            Button btn3 = MakeButton("3", x1 + 180, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("3"); UpdateDisplay(); });
             Button btnI = MakeButton("i*", x1 + 240, y3, Color.FromArgb(100, 149, 237), (s, e) => { calcCore.PressI(); UpdateDisplay(); });
 
             int y4 = 290;
@@ -179,17 +176,17 @@ namespace ComplexCalcSeparated
                 calcCore.MemoryAdd();
                 UpdateDisplay();
             });
-            Button btn0 = MakeButton("0", x1 + 60, y4, Color.FromArgb(245, 245, 245), (s, e) => { calcCore.PressDigit("0"); UpdateDisplay(); });
-            Button btnBksp = MakeButton("⌫", x1 + 120, y4, Color.FromArgb(220, 220, 220), (s, e) => { calcCore.PressBackspace(); UpdateDisplay(); });
+            Button btn0 = MakeButton("0", x1 + 60, y4, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("0"); UpdateDisplay(); });
+            Button btnBksp = MakeButton("⌫", x1 + 120, y4, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressBackspace(); UpdateDisplay(); });
             Button btnEq = MakeButton("=", x1 + 180, y4, Color.FromArgb(50, 205, 50), (s, e) => {
                 calcCore.PressEquals();
                 UpdateDisplay();
             });
-            Button btnC = MakeButton("C", x1 + 240, y4, Color.FromArgb(220, 20, 60), (s, e) => {
+            Button btnC = MakeButton("C", x1 + 240, y4, Color.FromArgb(90, 0, 0), (s, e) => {
                 calcCore.PressClear();
                 UpdateDisplay();
             });
-            Button btnCE = MakeButton("CE", x1 + 300, y4, Color.FromArgb(220, 20, 60), (s, e) => {
+            Button btnCE = MakeButton("CE", x1 + 300, y4, Color.FromArgb(90, 0, 0), (s, e) => {
                 calcCore.PressClearEntry();
                 UpdateDisplay();
             });
@@ -208,11 +205,11 @@ namespace ComplexCalcSeparated
         {
             Button btn = new Button();
             btn.Text = text;
-            btn.Font = new Font("Segoe UI", 12f);
+            btn.Font = new Font("Times New Roman", 12f, FontStyle.Bold);
             btn.Size = new Size(50, 40);
             btn.Location = new Point(x, y);
-            btn.BackColor = backColor;
-            btn.ForeColor = Color.Black;
+            btn.BackColor = Color.FromArgb(70, 70, 70);
+            btn.ForeColor = Color.White;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderColor = Color.Gray;
             btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(
@@ -253,7 +250,7 @@ namespace ComplexCalcSeparated
         private void OnMenuAbout_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Калькулятор комплексных чисел\n" +
-                          "Разработчик: \n" +
+                          "Разработчик: Тетяков И.С. ИП-111\n" +
                           "Вариант 20",
                           "О программе");
         }
@@ -319,7 +316,7 @@ namespace ComplexCalcSeparated
                 Height = 150,
                 Text = title,
                 StartPosition = FormStartPosition.CenterParent,
-                BackColor = Color.FromArgb(240, 240, 240)
+                BackColor = Color.FromArgb(30, 30, 30)
             };
             Label lbl = new Label() { Left = 10, Top = 10, Text = text, AutoSize = true };
             TextBox txtInput = new TextBox()
@@ -328,7 +325,8 @@ namespace ComplexCalcSeparated
                 Top = 35,
                 Width = 300,
                 Text = defVal,
-                BackColor = Color.FromArgb(255, 255, 230)
+                BackColor = Color.FromArgb(50, 50, 50),
+                ForeColor = Color.White
             };
             Button btnOk = new Button()
             {
@@ -336,7 +334,7 @@ namespace ComplexCalcSeparated
                 Left = 160,
                 Width = 70,
                 Top = 70,
-                BackColor = Color.FromArgb(70, 130, 180),
+                BackColor = Color.FromArgb(60, 60, 60),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
@@ -346,7 +344,7 @@ namespace ComplexCalcSeparated
                 Left = 240,
                 Width = 70,
                 Top = 70,
-                BackColor = Color.FromArgb(220, 20, 60),
+                BackColor = Color.FromArgb(90, 0, 0),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
