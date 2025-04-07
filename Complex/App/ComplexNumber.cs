@@ -2,9 +2,6 @@
 
 namespace ComplexCalcSeparated
 {
-    /// <summary>
-    /// Класс комплексного числа a + i*b
-    /// </summary>
     public class ComplexNumber
     {
         public double Real { get; set; }
@@ -16,37 +13,45 @@ namespace ComplexCalcSeparated
             Imag = imag;
         }
 
-        // Текстовое представление: "a i* b" (при b>=0) или "a i* -b" (при b<0)
-        public override string ToString()
+        public string ToString(DisplayFormat format)
         {
             if (double.IsNaN(Real) || double.IsInfinity(Real))
                 return $"{Real.ToString("G")} i* {Imag.ToString("G")}";
 
-            double b = Imag;
-            if (double.IsNaN(b) || double.IsInfinity(b))
-                return $"{Real} i* {b.ToString("G")}";
+            if (double.IsNaN(Imag) || double.IsInfinity(Imag))
+                return $"{Real} i* {Imag.ToString("G")}";
 
-            if (b >= 0)
-                return $"{Real} i* {b}";
+            if (format == DisplayFormat.Real && Imag == 0)
+                return Real.ToString();
+
+            if (Imag >= 0)
+                return $"{Real} i* {Imag}";
             else
-                return $"{Real} i* -{Math.Abs(b)}";
+                return $"{Real} i* -{Math.Abs(Imag)}";
         }
 
-        // Операторы + - * /
+        public override string ToString()
+        {
+            return ToString(DisplayFormat.Complex);
+        }
+
         public static ComplexNumber operator +(ComplexNumber x, ComplexNumber y)
         {
             return new ComplexNumber(x.Real + y.Real, x.Imag + y.Imag);
         }
+
         public static ComplexNumber operator -(ComplexNumber x, ComplexNumber y)
         {
             return new ComplexNumber(x.Real - y.Real, x.Imag - y.Imag);
         }
+
         public static ComplexNumber operator *(ComplexNumber x, ComplexNumber y)
         {
             double real = x.Real * y.Real - x.Imag * y.Imag;
             double imag = x.Real * y.Imag + x.Imag * y.Real;
             return new ComplexNumber(real, imag);
         }
+
         public static ComplexNumber operator /(ComplexNumber x, ComplexNumber y)
         {
             double denom = y.Real * y.Real + y.Imag * y.Imag;
@@ -56,7 +61,6 @@ namespace ComplexCalcSeparated
             return new ComplexNumber(real, imag);
         }
 
-        // Унарные операции
         public ComplexNumber Square()
         {
             double real = Real * Real - Imag * Imag;
@@ -72,14 +76,12 @@ namespace ComplexCalcSeparated
             return new ComplexNumber(Real / denom, -Imag / denom);
         }
 
-        // Модуль, аргумент
         public double Modulus() => Math.Sqrt(Real * Real + Imag * Imag);
 
         public double ArgumentRadians() => Math.Atan2(Imag, Real);
 
         public double ArgumentDegrees() => ArgumentRadians() * 180.0 / Math.PI;
 
-        // Возведение в степень
         public ComplexNumber Power(int n)
         {
             if (n == 0) return new ComplexNumber(1, 0);
@@ -95,7 +97,6 @@ namespace ComplexCalcSeparated
             return result;
         }
 
-        // Корни n-й степени
         public ComplexNumber[] Roots(int n)
         {
             if (n <= 0)

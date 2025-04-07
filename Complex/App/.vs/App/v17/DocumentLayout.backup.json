@@ -1,36 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\calculatorcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:calculatorcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{909DA100-0385-4A7E-A28D-15C63D0646ED}|..\\Test\\Test.csproj|c:\\users\\user\\source\\repos\\stp_rgr\\test\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tetyakoff\\Desktop\\stp_rgr\\Test\\UnitTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\Users\\User\\source\\repos\\stp_rgr\\App\\memory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:memory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Homework\\8_term_25\\stp_rgr\\Test\\UnitTest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\complexnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\Users\\User\\source\\repos\\stp_rgr\\App\\complexnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:complexnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\calcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\Users\\User\\source\\repos\\stp_rgr\\App\\calculatorcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:calculatorcore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\Users\\User\\source\\repos\\stp_rgr\\App\\calcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:calcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\calcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:calcform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\memory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{952350C1-182C-4408-A1F6-93894AA7543F}|App.csproj|solutionrelative:memory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,100 +29,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UnitTest1.cs",
-              "DocumentMoniker": "C:\\Users\\tetyakoff\\Desktop\\stp_rgr\\Test\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Users\\tetyakoff\\Desktop\\stp_rgr\\Test\\UnitTest1.cs",
-              "ToolTip": "C:\\Users\\tetyakoff\\Desktop\\stp_rgr\\Test\\UnitTest1.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Users\\tetyakoff\\Desktop\\stp_rgr\\Test\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAMAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\stp_rgr\\Test\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\Test\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\stp_rgr\\Test\\UnitTest1.cs",
+              "RelativeToolTip": "..\\Test\\UnitTest1.cs",
+              "ViewState": "AgIAAN8BAAAAAAAAAAAzwKgAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T16:26:25.076Z",
+              "WhenOpened": "2025-04-01T19:32:40.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\Homework\\8_term_25\\stp_rgr\\Test\\UnitTest1.cs",
-              "ToolTip": "D:\\Homework\\8_term_25\\stp_rgr\\Test\\UnitTest1.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T14:41:14.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CalcForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\CalcForm.cs",
-              "RelativeDocumentMoniker": "CalcForm.cs",
-              "ToolTip": "D:\\Homework\\8_term_25\\stp_rgr\\App\\CalcForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T13:19:30.878Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Memory.cs",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\Memory.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\Memory.cs",
               "RelativeDocumentMoniker": "Memory.cs",
-              "ToolTip": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\Memory.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\Memory.cs",
               "RelativeToolTip": "Memory.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAmwAwAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T12:51:27.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ComplexNumber.cs",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\ComplexNumber.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\ComplexNumber.cs",
               "RelativeDocumentMoniker": "ComplexNumber.cs",
-              "ToolTip": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\ComplexNumber.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\ComplexNumber.cs",
               "RelativeToolTip": "ComplexNumber.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T11:21:59.414Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CalculatorCore.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\CalculatorCore.cs",
+              "RelativeDocumentMoniker": "CalculatorCore.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\CalculatorCore.cs",
+              "RelativeToolTip": "CalculatorCore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T12:59:06.028Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
               "Title": "CalcForm.cs",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\CalcForm.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\CalcForm.cs",
               "RelativeDocumentMoniker": "CalcForm.cs",
-              "ToolTip": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\CalcForm.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\stp_rgr\\App\\CalcForm.cs",
               "RelativeToolTip": "CalcForm.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowC0AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-01T13:00:38.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CalculatorCore.cs",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\CalculatorCore.cs",
-              "RelativeDocumentMoniker": "CalculatorCore.cs",
-              "ToolTip": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\CalculatorCore.cs",
-              "RelativeToolTip": "CalculatorCore.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAIAwwDsAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T12:59:06.028Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\WORK\\\u041A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\\C-_Calculator_Complex\\Complex\\App\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-01T11:22:14.929Z"
             }
           ]
         }

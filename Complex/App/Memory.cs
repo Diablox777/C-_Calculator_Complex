@@ -2,9 +2,6 @@
 
 namespace ComplexCalcSeparated
 {
-    /// <summary>
-    /// Класс памяти (хранит одно значение типа T)
-    /// </summary>
     public class Memory<T>
     {
         private T _value;
@@ -13,7 +10,6 @@ namespace ComplexCalcSeparated
         public Memory()
         {
             _value = default(T);
-            // Для ComplexNumber явный 0+i0
             if (typeof(T) == typeof(ComplexNumber))
             {
                 _value = (T)(object)new ComplexNumber(0, 0);
@@ -36,13 +32,22 @@ namespace ComplexCalcSeparated
 
         public void Add(T val)
         {
-            // Используем dynamic, предполагая оператор + у T
             dynamic curr = _value;
             dynamic addend = val;
             _value = (T)(curr + addend);
         }
 
-        // Флаг непустоты
-        public bool HasValue => !Equals(_value, default(T));
+        public bool HasValue
+        {
+            get
+            {
+                if (typeof(T) == typeof(ComplexNumber))
+                {
+                    var value = _value as ComplexNumber;
+                    return !(Math.Abs(value.Real) < 1e-14 && Math.Abs(value.Imag) < 1e-14);
+                }
+                return !Equals(_value, default(T));
+            }
+        }
     }
 }
