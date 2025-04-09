@@ -129,6 +129,45 @@ namespace ComplexCalcSeparated
         }
         #endregion
 
+        #region Переключение знака (Toggle Sign)
+        public void PressToggleSign()
+        {
+            int idx = DisplayText.IndexOf("i*");
+            if (idx != -1)
+            {ода мнимой части.
+                string realPart = DisplayText.Substring(0, idx).Trim();
+                string imagPart = DisplayText.Substring(idx + 2).Trim();
+                if (string.IsNullOrEmpty(imagPart))
+                {
+                    imagPart = "-";
+                }
+                else if (imagPart.StartsWith("-"))
+                {
+                    imagPart = imagPart.Substring(1).TrimStart();
+                }
+                else
+                {
+                    imagPart = "-" + imagPart;
+                }
+                DisplayText = $"{realPart} i* {imagPart}";
+            }
+            else
+            {
+                // Режим ввода действительной части.
+                string trimmed = DisplayText.Trim();
+                if (trimmed.StartsWith("-"))
+                {
+                    trimmed = trimmed.Substring(1);
+                }
+                else
+                {
+                    trimmed = "-" + trimmed;
+                }
+                DisplayText = trimmed;
+            }
+        }
+        #endregion
+
         #region Очистка
         public void PressClearEntry()
         {

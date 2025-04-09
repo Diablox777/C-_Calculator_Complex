@@ -232,6 +232,11 @@ namespace ComplexCalcSeparated
             Button btn2 = MakeButton("2", x1 + 120, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("2"); UpdateDisplay(); });
             Button btn3 = MakeButton("3", x1 + 180, y3, Color.FromArgb(70, 70, 70), (s, e) => { calcCore.PressDigit("3"); UpdateDisplay(); });
             Button btnI = MakeButton("i*", x1 + 240, y3, Color.FromArgb(100, 149, 237), (s, e) => { calcCore.PressI(); UpdateDisplay(); });
+            Button btnToggleSign = MakeButton("±", x1 + 300, y3, Color.FromArgb(70, 70, 70), (s, e) =>
+            {
+                calcCore.PressToggleSign();
+                UpdateDisplay();
+            });
             int y4 = 290;
             Button btnMPlus = MakeButton("M+", x1, y4, Color.FromArgb(255, 215, 0), (s, e) => {
                 calcCore.MemoryAdd();
@@ -255,7 +260,7 @@ namespace ComplexCalcSeparated
                 btnMC, btnMR, btnMS, btnMPlus,
                 btn7, btn8, btn9, btnAdd, btnSub,
                 btn4, btn5, btn6, btnMul, btnDiv,
-                btn1, btn2, btn3, btnI,
+                btn1, btn2, btn3, btnI, btnToggleSign,
                 btn0, btnBksp, btnEq, btnC, btnCE,
                 btnSqr, btnRev, btnMdl, btnCnr, btnPwr, btnRoot
             });
